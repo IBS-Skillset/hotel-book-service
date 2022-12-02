@@ -29,8 +29,8 @@ supplier:
 
 grpc:
   client:
-    hotel-rate-pad:
-      address: 'discovery:///hotel-rate-pad'
+    hotel-book-reprice-pad:
+      address: 'discovery:///hotel-book-reprice-pad'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
