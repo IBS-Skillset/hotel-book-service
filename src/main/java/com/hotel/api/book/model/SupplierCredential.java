@@ -1,5 +1,4 @@
 package com.hotel.api.book.model;
-
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -9,5 +8,7 @@ public class SupplierCredential {
 
     private String requestorId;
     private String password;
+    private String mod;
+    private String publicExp;
 
 }
