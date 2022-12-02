@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HotelRateRuleService {
 
-    @GrpcClient("hotel-rate-pad")
+    @GrpcClient("hotel-book-reprice-pad")
     HotelRateRuleServiceGrpc.HotelRateRuleServiceBlockingStub hotelRateRuleServiceBlockingStub;
 
     @Autowired
