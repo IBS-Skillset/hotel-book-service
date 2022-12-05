@@ -16,7 +16,7 @@ public class HotelRateRuleService {
     HotelRateRuleServiceGrpc.HotelRateRuleServiceBlockingStub hotelRateRuleServiceBlockingStub;
 
     @Autowired
-    RequestContextMapper requestContextMapper;
+    private RequestContextMapper requestContextMapper;
 
     public String service(RateRuleRequest request) throws Exception {
         HotelRateRuleRequest rateRuleRequest = HotelRateRuleRequest.newBuilder()
