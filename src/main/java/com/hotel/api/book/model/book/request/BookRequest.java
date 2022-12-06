@@ -1,24 +1,13 @@
 package com.hotel.api.book.model.book.request;
 
-import lombok.Setter;
-import lombok.Getter;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.Builder;
+import lombok.Data;
 
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Builder(toBuilder = true)
-public class HotelBookRequest {
+@Data
+public class BookRequest {
 
     private String languageCode;
     private String hotelCode;
     private String countryCode;
-    private String currencyCode;
     private String ratePlanId;
     private int numberOfRooms;
     private int guestCount;
