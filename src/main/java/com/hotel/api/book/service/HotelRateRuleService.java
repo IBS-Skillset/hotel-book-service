@@ -5,11 +5,13 @@ import com.hotel.api.book.mappers.common.RequestContextMapper;
 import com.hotel.api.book.model.RateRuleRequest;
 import com.hotel.service.raterule.HotelRateRuleRequest;
 import com.hotel.service.raterule.HotelRateRuleServiceGrpc;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class HotelRateRuleService {
 
     @GrpcClient("hotel-book-reprice-pad")
@@ -19,6 +21,7 @@ public class HotelRateRuleService {
     private RequestContextMapper requestContextMapper;
 
     public String service(RateRuleRequest request) throws Exception {
+        log.info(request.toString());
         HotelRateRuleRequest rateRuleRequest = HotelRateRuleRequest.newBuilder()
                 .setHotelCode(request.getHotelCode())
                 .setLanguageCode(request.getLanguageCode())
@@ -27,6 +30,9 @@ public class HotelRateRuleService {
                 .setEndDate(request.getCheckOutDate())
                 .setRoomCount(request.getRoomCount())
                 .setRequestContext(requestContextMapper.map()).build();
-        return JsonFormat.printer().print(hotelRateRuleServiceBlockingStub.getHotelRateRule(rateRuleRequest));
+        log.info("Calling grpc service for request " + rateRuleRequest);
+        String response = JsonFormat.printer().print(hotelRateRuleServiceBlockingStub.getHotelRateRule(rateRuleRequest));
+        log.info("Response " + response);
+        return response;
     }
 }
