@@ -1,5 +1,6 @@
 package com.hotel.api.book.interceptors;
 
+import com.hotel.api.book.util.Constants;
 import io.grpc.ClientCall;
 import io.grpc.ClientInterceptor;
 import io.grpc.ForwardingClientCall;
@@ -21,7 +22,7 @@ public class ApiKeyAuthInterceptor implements ClientInterceptor {
                 ForwardingClientCall.SimpleForwardingClientCall<>(channel.newCall(methodDescriptor, callOptions)) {
                     @Override
                     public void start(Listener<RespT> responseListener, Metadata headers) {
-                    headers.put(Metadata.Key.of("accesstoken", Metadata.ASCII_STRING_MARSHALLER), MDC.get("token"));
+                    headers.put(Metadata.Key.of("accesstoken", Metadata.ASCII_STRING_MARSHALLER), MDC.get(Constants.TOKEN));
                     super.start(responseListener, headers);
                     }
                 };
