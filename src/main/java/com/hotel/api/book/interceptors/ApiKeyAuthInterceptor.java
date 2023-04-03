@@ -17,7 +17,7 @@ import org.slf4j.MDC;
 public class ApiKeyAuthInterceptor implements ClientInterceptor {
     @Override
     public <ReqT, RespT> ClientCall<ReqT, RespT> interceptCall(MethodDescriptor<ReqT, RespT> methodDescriptor, CallOptions callOptions, Channel channel) {
-        log.info("client interceptor {}", methodDescriptor.getFullMethodName());
+        log.info("client interceptor  {}", methodDescriptor.getFullMethodName());
         return new
                 ForwardingClientCall.SimpleForwardingClientCall<>(channel.newCall(methodDescriptor, callOptions)) {
                     @Override
