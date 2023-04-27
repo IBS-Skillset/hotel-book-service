@@ -26,6 +26,9 @@ management:
 supplier:
   endPoint:
     url: "https://traveldoo.koedia.com"
+  radius: 3
+  requestorId: "traveldoo_test"
+  password: "C2A43182"
 
 grpc:
   client:
@@ -45,5 +48,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: ${eureka.service-url.default}
+      defaultZone: http://${HOST_REGISTRY:localhost}:8761/eureka/
 

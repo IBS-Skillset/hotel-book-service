@@ -4,11 +4,11 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:9296/config-server
-    vault:
-      application-name: HOTEL-SEARCH-API
-      authentication: TOKEN
-      token: 00000000-0000-0000-0000-000000000000
-      scheme: http
-      kv:
-        enabled: true
+      uri: http://${HOST_CONFIG:localhost}:9296/config-server
+    #vault:
+     # application-name: HOTEL-SEARCH-API
+      #authentication: TOKEN
+      #token: 00000000-0000-0000-0000-000000000000
+      #scheme: http
+      #kv:
+       # enabled: true
