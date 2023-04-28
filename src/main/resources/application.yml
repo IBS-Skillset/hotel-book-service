@@ -52,5 +52,5 @@ eureka:
 
 auth:
   server:
-    url: http://${HOST_AUTH:localhost}:9000
+    url: http://authorization-server:9000
 
